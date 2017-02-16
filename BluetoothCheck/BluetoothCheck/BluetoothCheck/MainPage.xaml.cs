@@ -41,7 +41,7 @@
 
       public ObservableCollection<string> ListOfDevices { get; set; } = new ObservableCollection<string>();
 
-      public string SelectedBthDevice { get; set; } = string.Empty;
+      public string SelectedBthDevice { get; set; } = "Moto-X";
 
       public ICommand ConnectCommand { get; protected set; }
 
@@ -55,12 +55,16 @@
       {
          this.ActivityIndicator.IsRunning = false;
          this.ActivityIndicator.IsVisible = false;
+         this.DisconnecteCommand.Execute("parameter");
+         this.AdapterStatus.Text = "Disconnected";
       }
 
       private void Connect_OnClicked(object sender, EventArgs e)
       {
          this.ActivityIndicator.IsVisible = true;
          this.ActivityIndicator.IsRunning = true;
+         this.ConnectCommand.Execute("parameter");
+         this.AdapterStatus.Text = "Connected to Moto-X";
       }
 
       private void GetDevices_OnClicked(object sender, EventArgs e)

@@ -1,12 +1,17 @@
+using BluetoothCheck.Droid;
+
+[assembly: Xamarin.Forms.Dependency(typeof(Bth))]
+
 namespace BluetoothCheck.Droid
 {
+   using System;
    using System.Collections.ObjectModel;
    using System.Threading;
    using System.Threading.Tasks;
 
    using Android.Bluetooth;
 
-   class Bth : IBth
+   public class Bth : IBth
    {
       private const int RequestResolveError = 1000;
 
@@ -76,7 +81,7 @@ namespace BluetoothCheck.Droid
                   System.Diagnostics.Debug.WriteLine("Adapter Enabled");
                }
 
-               System.Diagnostics.Debug.WriteLine("Try to connect to " + name);
+               Console.WriteLine("Try to connect to " + name);
 
                foreach (var bd in adapter.BondedDevices)
                {
