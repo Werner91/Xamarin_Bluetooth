@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="BluetoothCheck.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BluetoothCheck">
+    <StackLayout Orientation="Vertical" VerticalOptions="Start">
+        <Button x:Name="GetDevices"
+                Clicked="GetDevices_OnClicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Get paired Devices" />
+        <Button x:Name="ConnectBtn"
+                Clicked="Connect_OnClicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Connect to device" />
+        <Button x:Name="CancleBtn"
+                Clicked="Cancle_OnClicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Cancle connection" />
+        <Label x:Name="AdapterStatus"
+               HorizontalOptions="Center"
+               Text="Adapter Status" />
+        <Picker x:Name="pickerBluetoothDeives"
+                Title="Select a bth device"
+                HorizontalOptions="Center" />
+        <ActivityIndicator x:Name="ActivityIndicator"
+                           HorizontalOptions="Center"
+                           IsRunning="False"
+                           IsVisible="False" />
+    </StackLayout>
+</ContentPage>
